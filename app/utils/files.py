@@ -13,8 +13,25 @@ AGREEMENTS_DIR = UPLOADS_DIR / "agreements"
 STANDARDS_DIR = UPLOADS_DIR / "standards"
 OUTPUT_DIR = BASE_DIR / "output"
 
-ALLOWED_EXTENSIONS = {".pdf", ".docx", ".txt", ".xlsx"}
-MAX_UPLOAD_BYTES = 15 * 1024 * 1024  # 15 MB per file
+ALLOWED_EXTENSIONS = {
+    ".accdb",
+    ".bmp",
+    ".csv",
+    ".doc",
+    ".docx",
+    ".gif",
+    ".jpeg",
+    ".jpg",
+    ".mdb",
+    ".pdf",
+    ".png",
+    ".tif",
+    ".tiff",
+    ".webp",
+    ".xls",
+    ".xlsx",
+}
+MAX_UPLOAD_BYTES = 50 * 1024 * 1024  # 15 MB per file
 CHUNK_SIZE = 1024 * 1024  # 1 MB
 
 

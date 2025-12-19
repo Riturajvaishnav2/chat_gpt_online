@@ -41,7 +41,7 @@ async def lifespan(_: FastAPI):
     yield
 
 
-app = FastAPI(title="Loader Generator API", version="1.0.0", lifespan=lifespan)
+app = FastAPI(title="DCH Tariff Automation API", version="1.0.0", lifespan=lifespan)
 
 
 async def _store_agreement_upload(agreement_file: UploadFile) -> UploadAgreementResponse:
@@ -72,16 +72,6 @@ async def _store_standard_uploads(standard_files: List[UploadFile]) -> UploadSta
         stored.append(stored_filename)
 
     return UploadStandardResponse(batch_id=batch_id, stored_filenames=stored)
-
-
-@app.post("/upload/agreement", response_model=UploadAgreementResponse)
-async def upload_agreement(agreement_file: UploadFile = File(...)) -> UploadAgreementResponse:
-    return await _store_agreement_upload(agreement_file)
-
-
-@app.post("/upload/standard", response_model=UploadStandardResponse)
-async def upload_standard(standard_files: List[UploadFile] = File(...)) -> UploadStandardResponse:
-    return await _store_standard_uploads(standard_files)
 
 
 @app.post("/upload/agreement/file", response_model=UploadCombinedResponse)
